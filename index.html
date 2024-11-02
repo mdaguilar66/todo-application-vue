@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        
+        <h1>Vue.js TODO App</h1>
+        
+        <div id="app">
+            <div class="todo-app">
+                <input v-model="newTodo" @keyup.enter="addTodo" placeholder="Add a new task" />
+                <ul>
+                    <li v-for="(todo, index) in todos" :key="index">
+                        <input type="checkbox" v-model="todo.completed" />
+                        <span :class="{ completed: todo.completed }">{{ todo.text }}</span>
+                        <button @click="removeTodo(index)">Delete</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script src="./script.js" async defer></script>
+    </body>
+</html>
